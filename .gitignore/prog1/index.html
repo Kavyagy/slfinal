@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tesla Catalog</title>
+		<script>window.onload = function() {
+
+    var teslaModels = [
+        {
+            "model": "modelS",
+            "name": "Model S",
+            "price": 69200,
+            "year": 2016
+        },
+        {
+            "model": "modelX",
+            "name": "Model X",
+            "price": 83700,
+            "year": 2017
+        },
+        {
+            "model": "model3",
+            "name": "Model 3",
+            "price": 35000,
+            "year": 2017
+        },
+    ];
+
+    //Generate HTML for Menu Bar
+    teslaModels.forEach(function(item,index){
+        listElemet = document.createElement("th")
+        listElemet.id = item.model
+        listElemet.innerHTML = item.name
+        document.getElementById("menu").appendChild(listElemet)
+    })
+
+    // add event handler for mouseover on each img:
+    teslaModels.forEach(mouseOverHandler);
+    function mouseOverHandler(item, index)
+    {
+        var elem = document.getElementById(item.model);
+        elem.onmouseover = function(){
+             var details = item;
+            // if found, update DOM with information from array
+            if(details!=null)
+            {
+                document.getElementById("data-table").removeAttribute('hidden');
+                document.getElementById("model").innerHTML = details.name;
+                document.getElementById("picture").innerHTML = '<img src="img/'+details.model+'.png"/>';
+                document.getElementById("price").innerHTML = "$"+details.price;
+                document.getElementById("year").innerHTML = details.year;
+
+            }
+        }
+    }
+
+
+};</script>
+		<style>
+			table {
+				text-align: center;
+				width: 100%;
+			}
+
+			td {
+					font-size: xx-large;
+			}
+			th {
+				font-size: x-large;
+				background-color: #4CAF50;
+				color: white;
+			}
+			th:hover {
+				background-color: #4CA;
+
+			}
+		</style>
+	</head>
+	<body>
+		<h3 style="text-align:center">Hover a Tesla Type</h3><br>
+		<table>
+			<tr id="menu">
+			</tr>
+		</table><br>
+		<hr><br>
+		<table class="table" id="data-table" hidden>
+			<tr><td>Name</td><td id="model"></td></tr>
+			<tr><td>Look</td><td id="picture"></td></tr>
+			<tr><td>Price</td><td id="price"></td></tr>
+			<tr><td>Year</td><td id="year"></td></tr>
+		</table>
+
+
+	</body>
+</html>
