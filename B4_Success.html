@@ -1,0 +1,35 @@
+<html>
+	<head>
+    	<title>Form Details</title>
+  	</head>
+
+  	<body>
+
+		<h1> Successfully Validated</h1>
+		<p> Name = {{ name }} </p>
+		<p> USN = {{ usn }} </p>
+		<p> DOB = {{ dob }} </p>
+
+		<table border="1">
+			<tr>
+				<th>Subject</th>
+				<th>Marks</th>
+				<th>Credits</th>
+				<th>Grade</th>
+				<th>Grade Points</th>
+			</tr>
+			{% for row in data %}
+				<tr>
+					<td>{{ row[0] }}</td>
+					<td>{{ row[1] }}</td>
+					<td>{{ row[2] }}</td>
+					<td>{{ row[3] }}</td>
+					<td>{{ row[4] }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<h1> SGPA = {{ sgpa }} </h1>
+
+	</body>
+
+</html>

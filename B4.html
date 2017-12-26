@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Student Details</title>
+    <script>
+        function validate()
+        {
+            var usn = document.getElementById("usn").value;
+            var format = /^1[mM][sS][0-9][0-9][a-zA-Z][a-zA-Z][0-9][0-9][0-9]$/;
+            if(!format.test(usn)){
+                alert('Enter USN in correct format');
+                return 0;
+            }
+            return 1;
+        }
+    </script>
+</head>
+<body>
+<h1>Student Details</h1>
+<form id="details" action="{{url_for('stud')}}" onsubmit="return validate()" method="POST">
+    Name:      <input type="text" id="name" name="name" required><br><br>
+    USN (Eg 1MS15IS034):      <input type="text" id="usn" name="usn" required><br><br>
+    DOB (dd/mm/yyyy):      <input type="date" id="dob" name="dob" min="1992-01-01" max="1998-12-31" required><br><br>
+
+    Subject 1 : <input name = "marks[]" type="number" min="0" max ="100" required>
+    Credits 1 : <input name = "credits[]" type="number" min="1" max="4" required><br><br>
+    Subject 2 : <input name = "marks[]" type="number" min="0" max ="100" required>
+    Credits 2 : <input name = "credits[]" type="number" min="1" max="4" required><br><br>
+    Subject 3 : <input name = "marks[]" type="number" min="0" max ="100" required>
+    Credits 3 : <input name = "credits[]" type="number" min="1" max="4" required><br><br>
+    Subject 4 : <input name = "marks[]" type="number" min="0" max ="100" required>
+    Credits 4 : <input name = "credits[]" type="number" min="1" max="4" required><br><br>
+    Subject 5 : <input name = "marks[]" type="number" min="0" max ="100" required>
+    Credits 5 : <input name = "credits[]" type="number" min="1" max="4" required><br><br>
+
+    <input type="submit"><br>
+
+</form>
+</body>
+</html>
